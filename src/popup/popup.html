@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B站视频下载</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="popup">
+    <header class="head">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26" fill="none">
+          <rect x="2" y="6" width="28" height="20" rx="6" fill="currentColor"/>
+          <path d="m12 12 8 4-8 4v-8Z" fill="white"/>
+          <path d="m9 3 3 3M23 3l-3 3" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <h1>B站视频下载</h1>
+        <p>公开视频 · 多 P · 音视频合并</p>
+      </div>
+    </header>
+
+    <section class="card" id="statusCard">
+      <div class="status-row">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">正在检测当前页面…</span>
+      </div>
+      <p class="hint" id="statusHint"></p>
+      <button class="primary" id="openPanel" type="button" disabled>打开下载面板</button>
+    </section>
+
+    <section class="tips">
+      <div class="tip"><span>1</span>打开 B 站视频页，点击右下角「下载」。</div>
+      <div class="tip"><span>2</span>选择清晰度，默认自动合并为 MP4。</div>
+      <div class="tip"><span>3</span>清晰度取决于你的 B 站账号权限。</div>
+    </section>
+
+    <footer class="foot">仅供个人学习与备份，请遵守平台条款与 UP 主授权。</footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

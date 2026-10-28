@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>视频合并下载 · B站下载器</title>
+  <link rel="stylesheet" href="downloader.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="24" height="24" fill="none">
+            <rect x="2" y="6" width="28" height="20" rx="6" fill="currentColor"/>
+            <path d="m12 12 8 4-8 4v-8Z" fill="white"/>
+            <path d="m9 3 3 3M23 3l-3 3" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <strong>视频合并下载</strong>
+          <small>B站视频下载器</small>
+        </span>
+      </div>
+      <span class="privacy-badge">本地处理 · 不上传</span>
+    </header>
+
+    <main class="main">
+      <section class="card" id="mainCard">
+        <div class="eyebrow" id="eyebrow">准备下载</div>
+        <h1 class="title" id="title">正在读取任务…</h1>
+        <div class="meta" id="meta"></div>
+
+        <ol class="steps" id="steps">
+          <li class="step" data-step="1"><span class="step-dot">1</span><span class="step-name">下载视频轨</span></li>
+          <li class="step" data-step="2"><span class="step-dot">2</span><span class="step-name">下载音频轨</span></li>
+          <li class="step" data-step="3"><span class="step-dot">3</span><span class="step-name">合并为 MP4</span></li>
+          <li class="step" data-step="4"><span class="step-dot">4</span><span class="step-name">保存文件</span></li>
+        </ol>
+
+        <div class="progress-head">
+          <span id="stageLabel">准备中…</span>
+          <span id="percent">0%</span>
+        </div>
+        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress">
+          <div class="progress-bar" id="bar"></div>
+        </div>
+        <p class="detail" id="detail">正在准备下载环境。</p>
+
+        <div class="notice error" id="errorBox" hidden>
+          <strong id="errorTitle">下载失败</strong>
+          <p id="errorText"></p>
+          <details id="errorDetailWrap" hidden>
+            <summary>技术细节</summary>
+            <pre id="errorDetail"></pre>
+          </details>
+        </div>
+
+        <div class="actions" id="actions">
+          <button class="ghost" id="cancelButton" type="button">取消</button>
+          <button class="primary" id="retryButton" type="button" hidden>重试</button>
+          <button class="secondary" id="separateButton" type="button" hidden>分别下载视频 / 音频</button>
+          <button class="secondary" id="showFolderButton" type="button" hidden>打开下载文件夹</button>
+          <button class="ghost" id="closeButton" type="button" hidden>关闭此页</button>
+        </div>
+      </section>
+
+      <details class="logbox" id="logBox">
+        <summary>查看合并日志</summary>
+        <pre id="log"></pre>
+      </details>
+
+      <p class="legal">
+        文件只在本机浏览器中处理，不会上传到服务器。清晰度与可下载性取决于你的 B 站账号权限；
+        本工具不绕过会员、付费或 DRM 限制。请仅用于个人学习与备份，并遵守平台条款与 UP 主授权。
+      </p>
+    </main>
+  </div>
+
+  <script src="../vendor/ffmpeg/ffmpeg.js"></script>
+  <script src="downloader.js"></script>
+</body>
+</html>
